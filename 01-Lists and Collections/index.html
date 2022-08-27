@@ -24,7 +24,7 @@
     
     <tbody data-bind="foreach: seats">
       <tr>
-        <td data-bind="text: name"></td>
+        <td><input data-bind="value: name" /></td>
         <td>
           <select data-bind="
               options: $root.availableMeals,
@@ -36,7 +36,7 @@
       </tr>
     </tbody>
   </table>
-
+  <button data-bind="click: addSeat">Reserve another seat</button>
   <h3 data-bind="visible: totalSurcharge() > 0">
     Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
   </h3>

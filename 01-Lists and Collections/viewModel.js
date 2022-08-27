@@ -27,6 +27,10 @@ function ReservationsViewModel() {
       new SeatReservation("Bert", self.availableMeals[0])
   ]);
 
+  self.addSeat = function() {
+    self.seats.push(new SeatReservation("", self.availableMeals[0]));
+  }
+
   self.removeSeat = function(seat) { self.seats.remove(seat) }
 
   self.totalSurcharge = ko.computed(function() {
