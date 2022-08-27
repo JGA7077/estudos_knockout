@@ -7,6 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Documentação Knockout</title>
+
+  <style>
+    button {
+      color: white;
+      background-color: green;
+    }
+    button:disabled {
+      background-color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -36,7 +46,7 @@
       </tr>
     </tbody>
   </table>
-  <button data-bind="click: addSeat">Reserve another seat</button>
+  <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
   <h3 data-bind="visible: totalSurcharge() > 0">
     Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
   </h3>
