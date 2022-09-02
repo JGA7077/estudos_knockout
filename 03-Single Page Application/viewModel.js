@@ -5,6 +5,7 @@ function WebmailViewModel() {
   self.chosenFolderId = ko.observable();
   self.chosenFolderData = ko.observable();
   self.emailsArray = ko.observable();
+  self.chosenMailData = ko.observable();
 
   // behaviours
   self.goToFolder = function(folder) {
@@ -515,8 +516,35 @@ function WebmailViewModel() {
     self.emailsArray(emailsArray)
 
     self.chosenFolderId(folder);
-  
+    self.chosenMailData(null);
     self.chosenFolderData(self.emailsArray()[folder])
+  };
+
+  self.goToMail = function(mail) { 
+    var inboxEmails = {
+      1: {
+        id: 1,
+        from: "Abbot <oliver@smoke-stage.xyz>",
+        to: "steve@example.com",
+        date: "May 25, 2011",
+        subject: "Booking confirmation #389629244",
+        messageContent: "Hi!<br/><br/>Schwebet und ernsten zu ich träne diesmal schatten ich folgenden erste seh jenem und irrt was menge dunst herauf. Jenem meinem die mich bang jenem den lebens das busen verklungen fühlt folgenden. Stunden folgenden um nach widerklang strenge ein welt ich euch alten der um nun erfreuet gedränge. Festzuhalten bilder mich ihr jenem mit verklungen auf euch wird selbst des noch weich an des. Tränen um sehnen gleich das stunden irrt einst ertönt besitze ein und liebe wohl noch manche und hinweggeschwunden ertönt.<br/><br/>Lied lieb zauberhauch erste die steigen fühlt mich liebe halbverklungnen zu selbst liebe glück. Mir es fühlt hinweggeschwunden schwebet nun euch glück auf irrt neu weiten fühlt und jenem bringt lebens versuch. Erste folgenden ich walten wird euren sang nicht lebt mit es steigt widerklang tönen nun busen.<br/><br/>Gesänge zu nun hinweggeschwunden vom mich fühlt träne blick kommt zu. Um wohl es freundliche denen geneigt wird. Menge hören zauberhauch vom ertönt wiederholt mich die nicht jenem euch ein.<br/><br/>Widerklang der lebens der zug träne selbst sich bilder alten strenge zerstoben zauberhauch die um. Ertönt versuch erfreuet und. Ein wieder zerstreuet zerstoben folgt ich herzen der kommt ihr mein sich ersten gedränge.<br/><br/>Best regards - Jonas",
+        folder: "Inbox"
+      },
+      2: {
+        id: 2,
+        from: "Addison Begoat <upton.oprdrusson@pear-income.xyz>",
+        to: "steve@example.com",
+        date: "May 7, 2011",
+        subject: "FW: Associate advice",
+        messageContent: "Yo...<br/>Augue enim zzril vulputate amet suscipit suscipit ut. Dolor velit eos sit eleifend duo no soluta. Eos sit magna.<br/><br/>Sadipscing molestie voluptua clita kasd sadipscing dolor accusam quis accusam consetetur invidunt erat dolore. Dolor consetetur sed ea lorem et et suscipit magna ipsum magna sit eu sed sea vel.<br/><br/>Ut nonumy no stet congue nonumy amet luptatum et dolor enim eirmod erat kasd accusam diam eirmod. Dolor et vel diam qui sadipscing et erat ut erat nonummy dolor ea accusam sit eirmod illum eos accusam. Invidunt vulputate diam dolore est voluptua dolores et dolor iriure tincidunt consetetur elitr vero kasd clita sed.<br/><br/>Thanks,<br/>Ali",
+        folder: "Inbox"
+      }
+    }
+
+    self.chosenFolderId(mail.folder);
+    self.chosenFolderData(null); // Stop showing a folder
+    self.chosenMailData(inboxEmails[mail.id])
   };
 
   // Show inbox by default
