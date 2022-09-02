@@ -517,8 +517,6 @@ function WebmailViewModel() {
     self.chosenFolderId(folder);
   
     self.chosenFolderData(self.emailsArray()[folder])
-    console.log('self.emailsArray', self.emailsArray())
-    console.log('chosenFolderData', self.chosenFolderData())
   };
 
   // Show inbox by default
